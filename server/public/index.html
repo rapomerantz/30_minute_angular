@@ -17,9 +17,26 @@
         <!-- ng-click string contains a function that will be called. must be defined in the client. -->
         <button ng-click="vm.greet(vm.cohort)">Greet!</button>
         <!-- below: similar to a for of loop. repeats the DIV tag and the P tag in it -->
-        <div>
-            <p ng-repeat="person in vm.instructors">{{person.name}} has a pet named {{person.pet}}</p>
+        <div ng-repeat="person in vm.instructors">
+            <p>{{person.name}} has a pet named <span ng-if="person.showPet">{{person.pet}}</span></p>
+            <button ng-click="vm.togglePet(person)">Toggle Pet </button>
+            <!-- (person) can be used because it's within the DIV where person was defined -->
         </div>
+
+        <br>
+
+        <div ng-show="true"> This will be seen </div>
+        <div ng-show="false"> This will NOT be seen </div>
+        <!-- adjusts CSS display: none (still on the DOM) -->
+        <div ng-hide="true"> This will be hidden </div>
+        <div ng-hide="false"> This will NOT be hidden </div>
+
+        <div ng-if="true"> IF is TRUE: This will be seen </div>
+        <div ng-if="false">IF is False: This HTML will NOT EXIST (it will be commented it out) </div>
+        <!-- adjusts CSS display: none (still on the DOM) -->
+        <img ng-src="http://github.com/{{vm.username}}.png?size=200" alt="">
+
+
     </div>
 </body>
 </html>
