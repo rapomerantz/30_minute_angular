@@ -11,9 +11,15 @@
 <body ng-app="myApp">
     <div ng-controller="WelcomeController as vm">
         <h1>30 Minute Angular</h1>
-        <input ng-model="intro" type="text"/>
-        {{intro}}
+        <input ng-model="vm.intro" type="text"/>
+        {{vm.intro}}
         {{vm.greeting}}
+        <!-- ng-click string contains a function that will be called. must be defined in the client. -->
+        <button ng-click="vm.greet(vm.cohort)">Greet!</button>
+        <!-- below: similar to a for of loop. repeats the DIV tag and the P tag in it -->
+        <div>
+            <p ng-repeat="person in vm.instructors">{{person.name}} has a pet named {{person.pet}}</p>
+        </div>
     </div>
 </body>
 </html>
